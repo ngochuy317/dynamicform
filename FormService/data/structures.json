@@ -1,0 +1,67 @@
+{
+    "title": "Contact us",
+    "version": "2021",
+    "fields": [
+        {
+            "typename": "FormInput",
+            "name": "Name",
+            "type": "TEXT",
+            "inputLabel": "Name",
+            "placeholder": "Your name",
+            "required": true
+        },
+        {
+            "typename": "FormInput",
+            "name": "Email",
+            "type": "EMAIL",
+            "inputLabel": "Email address",
+            "placeholder": "you@example.com",
+            "required": true
+        },
+        {
+            "typename": "FormInput",
+            "name": "Tel",
+            "type": "TEL",
+            "inputLabel": "Phone no.",
+            "placeholder": "Your phone number",
+            "required": false
+        },
+        {
+            "typename": "FormSelect",
+            "name": "favFramework",
+            "selectLabel": "What's your favorite frontend framework?",
+            "options": [
+                {
+                    "value": "React",
+                    "option": "React"
+                },
+                {
+                    "value": "Vue",
+                    "option": "Vue"
+                },
+                {
+                    "value": "Angular",
+                    "option": "Angular"
+                },
+                {
+                    "value": "Svelte",
+                    "option": "Svelte"
+                }
+            ],
+            "required": false
+        },
+        {
+            "typename": "FormTextarea",
+            "name": "Message",
+            "textareaLabel": "Message",
+            "placeholder": "How can we help?",
+            "required": true
+        },
+        {
+            "typename": "FormCheckbox",
+            "name": "Terms",
+            "checkboxLabel": "I agree to the terms and privacy policy.",
+            "required": true
+        }
+    ]
+}

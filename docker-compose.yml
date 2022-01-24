@@ -1,0 +1,96 @@
+version: "3.9"
+   
+services:
+    webservice:
+        build: ./WebService
+        container_name: webservice
+        command: python manage.py runserver 0.0.0.0:8080
+        volumes:
+            - ./WebService:/code
+        ports:
+            - "8080:8080"
+
+        depends_on: 
+            - configservice
+            - formservice
+            - dataservice
+            - redis
+
+    formservice:
+        build: ./FormService
+        container_name: formservice
+        command: python manage.py runserver 0.0.0.0:8081
+        volumes:
+            - ./FormService:/code
+        ports:
+            - "8081:8081"
+        depends_on: 
+            - mongodb
+            - redis
+            - configservice
+    
+    dataservice:
+        build: ./DataService
+        container_name: dataservice
+        command: python manage.py runserver 0.0.0.0:8082
+        volumes:
+            - ./DataService:/code
+        ports:
+            - "8082:8082"
+        depends_on: 
+            - postgres
+            - redis
+            - configservice
+
+    configservice:
+        build: ./ConfigService
+        container_name: configservice
+        command: python manage.py runserver 0.0.0.0:8083
+        volumes:
+            - ./ConfigService:/code
+        ports:
+            - "8083:8083"
+    
+    postgres:
+        image: postgres
+        container_name: postgres
+        volumes:
+            - ./Database/postgresql/data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        volumes: 
+            - ./Database/mongodb/data/db:/data/db/
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mongodb
+            - MONGO_INITDB_ROOT_PASSWORD=mongodb
+
+    redis:
+        restart: always
+        image: redis:latest
+        command: redis-server
+        volumes:
+            - ./Redis/redis-data:/bitnami/redis/data
+        environment:
+            - REDIS_REPLICATION_MODE=master
+        ports:
+            - "6379:6379"
+            
+    nextjs-ui:
+        build: 
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        container_name: nextjs-ui
+        stdin_open: true
+        restart: always
+        volumes:
+            - ./frontend:/code
+            - /code/node_modules
+            - /code/.next

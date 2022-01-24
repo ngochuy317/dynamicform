@@ -1,0 +1,66 @@
+{
+  "web_service": {
+    "v1.1": {
+      "localhost:8080":1111111,
+      "DATABASE_ENGINE": "",
+      "DATABASE_PORT": "",
+      "SERVER_PORT": 8080,
+      "SECRET_KEY":"1#*ls8tk8qmnsvb%^(z8x16fouf)5y"
+    },
+    "v2.1":{
+      "localhost:18080":222222,
+      "DATABASE_ENGINE": "",
+      "DATABASE_PORT": "",
+      "SERVER_PORT": 8080,
+      "SECRET_KEY":"2#*ls8tk8qmnsvb%^(z8x16fouf)5y"
+    }    
+  },
+  "data_service": {
+    "v1.1":{
+      "localhost:8082": 111111,
+      "DATABASE_ENGINE": "django.db.backends.postgresql",
+      "DATABASE_NAME": "postgres",
+      "DATABASE_USER": "postgres",
+      "DATABASE_PASSWORD": "postgres",
+      "DATABASE_HOST": "postgres",
+      "DATABASE_PORT": 5432,
+      "SERVER_PORT": 8082,
+      "SECRET_KEY":"1a7tbjuyf$#%9r=pk56x)1f$+_"
+    },
+    "v2.1":{
+      "localhost:18082": 22222,
+      "DATABASE_ENGINE": "django.db.backends.postgresql",
+      "DATABASE_NAME": "postgres",
+      "DATABASE_USER": "postgres",
+      "DATABASE_PASSWORD": "postgres",
+      "DATABASE_HOST": "postgres",
+      "DATABASE_PORT": 5432,
+      "SERVER_PORT": 8082,
+      "SECRET_KEY":"2a7tbjuyf$#%9r=pk56x)1f$+_"
+    }
+  },
+  "form_service": {
+    "v1.1":{
+      "localhost:8081": 1111111,
+      "DATABASE_ENGINE": "mongodb",
+      "DATABASE_PORT": "27017",
+      "DATABASE_URL":"mongodb://mongodb:27017/",
+      "DATABASE_USER": "mongodb",
+      "DATABASE_PASSWORD": "mongodb",
+      "DATABASE_NAME": "form_service",
+      "SERVER_PORT": 8081,
+      "SECRET_KEY":"17^cz!ihpdx7gbzdq0zk97%a3p2(25h7"
+    },
+    "v2.1":{
+      "localhost:18081": 22222,
+      "DATABASE_ENGINE": "mongodb",
+      "DATABASE_PORT": "27017",
+      "DATABASE_URL":"mongodb://mongodb:27017/",
+      "DATABASE_USER": "mongodb",
+      "DATABASE_PASSWORD": "mongodb",
+      "DATABASE_NAME": "form_service",
+      "SERVER_PORT": 8081,
+      "SECRET_KEY":"27^cz!ihpdx7gbzdq0zk97%a3p2(25h7"
+    }
+  }
+}
